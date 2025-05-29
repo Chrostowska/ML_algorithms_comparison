@@ -1,75 +1,74 @@
-# Advanced Machine Learning Pipeline
+# Machine Learning Algorithms Comparison
 
-A comprehensive machine learning pipeline with advanced preprocessing, model selection, and evaluation capabilities.
+A comprehensive machine learning pipeline for comparing different classification algorithms on the Breast Cancer Wisconsin dataset. This project implements various machine learning models and provides tools for model evaluation and comparison.
+
+## Project Structure
+
+```
+ml_project/
+├── ml_pipeline/
+│   ├── __init__.py
+│   ├── preprocessing.py
+│   ├── models.py
+│   └── visualization/
+│       └── __init__.py
+├── data/              # Dataset storage
+├── notebooks/         # Jupyter notebooks for analysis
+├── tests/            # Unit tests
+├── outputs/          # Model outputs and visualizations
+├── main.py           # Main execution script
+├── requirements.txt  # Project dependencies
+└── README.md
+```
 
 ## Features
 
-### 1. Advanced Preprocessing (`preprocessing.py`)
-- Automatic handling of numerical and categorical features
-- Multiple scaling options (Standard, MinMax, Robust)
-- Categorical encoding (Label, One-Hot)
-- Missing value imputation (Mean, Median, KNN)
-- Outlier detection and handling
-- Feature selection
-- Dimensionality reduction (PCA)
+- **Data Preprocessing**
+  - Feature scaling and normalization
+  - Train-test splitting
+  - Data validation and cleaning
 
-### 2. Model Factory (`models.py`)
-- Unified interface for multiple ML algorithms
-- Pre-configured hyperparameter search spaces
-- Support for:
+- **Model Implementation**
   - Logistic Regression
-  - Decision Trees
-  - Random Forests
-  - Support Vector Machines
-  - K-Nearest Neighbors
-  - Gradient Boosting
-  - Neural Networks
-  - Naive Bayes
-  - XGBoost
+  - Random Forest
+  - Support Vector Machine (SVM)
+  - K-Nearest Neighbors (KNN)
+  - Decision Tree
 
-### 3. Evaluation and Visualization
-- Comprehensive model evaluation metrics
-- Performance visualization
-- Feature importance analysis
-- Learning curves
-- ROC curves and AUC scores
+- **Model Evaluation**
+  - Accuracy metrics
+  - Cross-validation
+  - Classification reports
+  - Confusion matrices
+  - ROC curves
 
-## Project Structure
-```
-ml_project/
-│
-├── data/                    # Data storage directory
-│   └── README.md           # Data directory documentation
-│
-├── ml_pipeline/            # Main package directory
-│   ├── __init__.py        # Package initialization
-│   ├── preprocessing.py    # Data preprocessing utilities
-│   ├── models.py          # Model definitions and configurations
-│   ├── evaluation.py      # Evaluation metrics and visualization
-│   └── utils.py           # Utility functions
-│
-├── notebooks/              # Jupyter notebooks for exploration
-│   └── examples.ipynb     # Example usage notebook
-│
-├── tests/                  # Test directory
-│   └── __init__.py        # Test initialization
-│
-├── requirements.txt        # Project dependencies
-└── README.md              # This file
-```
+- **Visualization**
+  - Performance metric plots
+  - Confusion matrix visualization
+  - ROC curve plotting
+
+## Results
+
+The project evaluates multiple classification algorithms on the Breast Cancer Wisconsin dataset:
+
+- SVM: Best performing model with 98.25% test accuracy
+- Logistic Regression: 97.37% test accuracy
+- Random Forest: 96.49% test accuracy
+- KNN and Decision Tree: 94.74% test accuracy
 
 ## Installation
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/Chrostowska/ML_algorithms_comparison.git
 cd ml_project
 ```
 
-2. Create and activate a virtual environment:
+2. Create and activate virtual environment:
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+.\venv\Scripts\activate  # On Windows
+source venv/bin/activate # On Unix/MacOS
 ```
 
 3. Install dependencies:
@@ -79,45 +78,33 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Basic Usage
-
-```python
-from ml_pipeline.preprocessing import DataPreprocessor
-from ml_pipeline.models import ModelFactory
-
-# Initialize preprocessor
-preprocessor = DataPreprocessor(
-    scaling_method='standard',
-    handle_outliers=True,
-    feature_selection=10
-)
-
-# Preprocess data
-X_train_processed = preprocessor.fit_transform(X_train, y_train)
-X_test_processed = preprocessor.transform(X_test)
-
-# Create and train model
-model = ModelFactory.create_model('random_forest')
-model.fit(X_train_processed, y_train)
-
-# Make predictions
-predictions = model.predict(X_test_processed)
+Run the main script to execute the complete pipeline:
+```bash
+python main.py
 ```
 
-### Example Notebook
+This will:
+1. Load and preprocess the Breast Cancer Wisconsin dataset
+2. Train multiple classification models
+3. Evaluate and compare model performance
+4. Generate visualization outputs
 
-Check out `notebooks/examples.ipynb` for a complete example of:
-- Data preprocessing
-- Model training and evaluation
-- Performance visualization
-- Feature importance analysis
+## Dependencies
+
+- numpy>=1.21.0
+- pandas>=1.3.0
+- scikit-learn>=1.0.0
+- matplotlib>=3.4.0
+- seaborn>=0.11.0
+- xgboost>=1.5.0
+- pytest>=7.0.0
 
 ## Contributing
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
 ## License
